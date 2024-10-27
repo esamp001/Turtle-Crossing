@@ -18,7 +18,7 @@ class CarManager(Turtle):
         self.penup()
 
         # STARTING X AXIS OF CAR
-        y = random.randint(-250, 250)
+        y = random.randint(-250, 300)
         x = random.randint(-200, 500)
         self.goto(x, y)
         self.setheading(180)
@@ -33,7 +33,7 @@ class CarManager(Turtle):
         turtle.Screen().ontimer(self.start_moving, 100)
 
     def create_multiple_cars(self, num_cars):
-        for _ in range(min(num_cars, 10)): #get the index and stop to 1
+        for _ in range(num_cars): #get the index and stop to 1
                 new_car = CarManager() #call the car attributes from car class
                 new_car.start_moving()
                 self.cars.append(new_car) #append it to car emptry string

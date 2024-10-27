@@ -15,7 +15,9 @@ screen.onkeypress(player.move_up, "w") #Make turtle go up
 screen.onkeypress(player.move_down, "s") #Make turtle go down
 
 car_manager = CarManager()
-car_manager.create_multiple_cars(40)
+car_manager.create_multiple_cars(20)
+score = Scoreboard()
+score.update_score()
 
 game_is_on = True
 while game_is_on:
@@ -23,5 +25,10 @@ while game_is_on:
     screen.update() #Update screen
     car_manager.move_forward()
 
+    for car in car_manager.cars:
+        if player.distance(car) < 20:
+            game_is_on = False
+
     if player.ycor() > 280:
         player.reset_position()
+
